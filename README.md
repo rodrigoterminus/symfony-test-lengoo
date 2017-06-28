@@ -38,6 +38,10 @@ On submit an email is sent to the applicant with something like "Thanks for your
 
 All textual data is saved in a MySql database, the attachment on the file system.
 
+#### Admin page
+
+This is a secured area. After logging in (user: lengoo, password: lengoo) we see a List with all applications. By clicking on one you can see the details from the form, the creation time and you download the attachment. And there is a Logout.
+
 #### Bonus points:
 * Clean code
 * Create a form class

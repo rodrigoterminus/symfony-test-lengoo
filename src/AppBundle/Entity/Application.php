@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Application
+ * application
  *
  * @ORM\Table(name="application")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ApplicationRepository")
@@ -45,7 +45,7 @@ class Application
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="createdAt", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
     private $createdAt;
 

@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Admin:index{% endblock %}
+
+{% block body %}
+    <table>
+        <tbody>
+            {% for application in applications %}
+                <tr>
+                    <td>{{ application.name }}</td>
+                    <td>{{ application.email }}</td>
+                    <td>{{ application.createdAt|date('Y-m-d H:i:s') }}</td>
+                    <td>{{ application.location }}</td>
+                    <td><a href="{{ asset('uploads/' ~ application.file) }}">View file</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">There is no applications to show.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

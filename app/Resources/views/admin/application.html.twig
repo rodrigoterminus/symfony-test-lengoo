@@ -1,0 +1,31 @@
+{% extends 'layout/base.html.twig' %}
+
+{% block body %}
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__supporting-text">
+            <h4>{{ application.name }}</h4>
+
+            <b>E-mail:</b>
+            <br>
+            {{ application.email }}
+
+            <hr>
+            <b>Location:</b>
+            <br>
+            {{ application.location }}
+
+            <hr>
+            <b>Created At:</b>
+            <br>
+            {{ application.createdAt|date('Y-m-d H:i:s') }}
+        </div>
+        <div class="mdl-card__menu">
+            <a id="btn-file" href="" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">description</i>
+            </a>
+            <div class="mdl-tooltip" data-mdl-for="btn-file">
+                Download file
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -19,7 +19,7 @@
                     <td class="mdl-data-table__cell--non-numeric">{{ application.location }}</td>
                     <td class="mdl-data-table__cell--non-numeric">{{ application.createdAt|date('Y-m-d H:i:s') }}</td>
                     <td>
-                        <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
+                        <a href="{{ path('admin_application', { id: application.id }) }}" class="mdl-button mdl-js-button mdl-button--icon">
                             <i class="material-icons">search</i>
                         </a>
                     </td>

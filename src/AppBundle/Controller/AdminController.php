@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -25,4 +26,12 @@ class AdminController extends Controller
         ]);
     }
 
+    /**
+     * @Route("/application/{id}", name="admin_application")
+     */
+    public function applicationAction(Application $application) {
+        return $this->render('admin/application.html.twig', [
+            'application' => $application
+        ]);
+    }
 }

@@ -20,7 +20,7 @@
             {{ application.createdAt|date('Y-m-d H:i:s') }}
         </div>
         <div class="mdl-card__menu">
-            <a id="btn-file" href="" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <a id="btn-file" href="{{ path('admin_application_file_download', { id: application.id }) }}" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
                 <i class="material-icons">description</i>
             </a>
             <div class="mdl-tooltip" data-mdl-for="btn-file">

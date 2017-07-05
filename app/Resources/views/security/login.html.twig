@@ -1,19 +1,30 @@
-{% extends "::base.html.twig" %}
+{% extends "layout/base.html.twig" %}
 
 {% block title %}AppBundle:Security:login{% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
-    <form action="{{ path('login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password" />
-
-        <button type="submit">login</button>
-    </form>
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <form action="{{ path('login') }}" method="post">
+            <div class="mdl-card__supporting-text">
+                <h4>Restrict area</h4>
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="mdl-textfield__input" />
+                            <label for="username" class="mdl-textfield__label">Username:</label>
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input type="password" id="password" name="_password" class="mdl-textfield__input" />
+                            <label for="password" class="mdl-textfield__label">Password:</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-card__actions">
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">login</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

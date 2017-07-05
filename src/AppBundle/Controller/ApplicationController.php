@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class ApplicationController
  * @package AppBundle\Controller
- * @Route("/application")
  */
 class ApplicationController extends Controller
 {

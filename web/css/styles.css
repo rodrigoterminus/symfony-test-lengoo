@@ -92,3 +92,7 @@ html, body {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.mdl-lengoo table {
+    width: 100%;
+}

@@ -1,26 +1,34 @@
-{% extends "::base.html.twig" %}
+{% extends "layout/base.html.twig" %}
 
 {% block title %}AppBundle:Admin:index{% endblock %}
 
 {% block body %}
-    <table>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr>
+                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th class="mdl-data-table__cell--non-numeric">Location</th>
+                <th class="mdl-data-table__cell--non-numeric">Created At</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
         <tbody>
             {% for application in applications %}
                 <tr>
-                    <td>{{ application.name }}</td>
-                    <td>{{ application.email }}</td>
-                    <td>{{ application.createdAt|date('Y-m-d H:i:s') }}</td>
-                    <td>{{ application.location }}</td>
-                    <td><a href="{{ asset('uploads/' ~ application.file) }}">View file</a></td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ application.name }}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ application.location }}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{ application.createdAt|date('Y-m-d H:i:s') }}</td>
+                    <td>
+                        <a href="#" class="mdl-button mdl-js-button mdl-button--icon">
+                            <i class="material-icons">search</i>
+                        </a>
+                    </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="5">There is no applications to show.</td>
+                    <td colspan="4">There is no applications to show.</td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-
-    <hr>
-    <a href="{{ path('logout') }}">Logout</a>
 {% endblock %}

@@ -42,9 +42,9 @@
 
                 {# Define button according to route #}
                 {% if app.request.attributes.get('_route') == 'application_index' %}
-                    {% set button = { icon: 'lock', path: path('admin_index') } %}
+                    {% set button = { icon: 'lock', path: path('admin_index'), label: 'Admin area' } %}
                 {% else %}
-                    {% set button = { icon: 'exit_to_app', path: path('logout') } %}
+                    {% set button = { icon: 'exit_to_app', path: path('logout'), label: 'Logout' } %}
                 {% endif %}
 
 
@@ -52,6 +52,9 @@
                     <i class="material-icons" role="presentation">{{ button.icon }}</i>
                     <span class="visuallyhidden">Add</span>
                 </a>
+                <div class="mdl-tooltip" data-mdl-for="btn-admin">
+                    {{ button.label }}
+                </div>
             </header>
             <main class="mdl-layout__content">
                 <section class="section--center">

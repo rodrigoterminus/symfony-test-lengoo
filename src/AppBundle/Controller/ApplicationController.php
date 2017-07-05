@@ -36,8 +36,7 @@ class ApplicationController extends Controller
             );
 
             $application
-                ->setFile($fileName)
-                ->setLocation('dumb location');
+                ->setFile($fileName);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($application);

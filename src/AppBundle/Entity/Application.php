@@ -50,12 +50,15 @@ class Application
     private $createdAt;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="location", type="string", length=255)
+     * @ORM\Column(name="location", type="json_array")
      */
     private $location;
 
+    /**
+     * Application constructor.
+     */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -78,7 +81,7 @@ class Application
      *
      * @return Application
      */
-    public function setName($name)
+    public function setName($name) :Application
     {
         $this->name = $name;
 
@@ -102,7 +105,7 @@ class Application
      *
      * @return Application
      */
-    public function setEmail($email)
+    public function setEmail($email) :Application
     {
         $this->email = $email;
 
@@ -126,7 +129,7 @@ class Application
      *
      * @return Application
      */
-    public function setFile($file)
+    public function setFile($file) :Application
     {
         $this->file = $file;
 
@@ -150,7 +153,7 @@ class Application
      *
      * @return Application
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt($createdAt) :Application
     {
         $this->createdAt = $createdAt;
 
@@ -174,7 +177,7 @@ class Application
      *
      * @return Application
      */
-    public function setLocation($location)
+    public function setLocation($location) :Application
     {
         $this->location = $location;
 
@@ -184,11 +187,11 @@ class Application
     /**
      * Get location
      *
-     * @return string
+     * @return array
      */
     public function getLocation()
     {
-        return $this->location;
+        return json_decode($this->location, true);
     }
 }
 

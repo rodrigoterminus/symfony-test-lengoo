@@ -33,6 +33,7 @@ class AdminController extends Controller
      * @Route("/application/{id}", name="admin_application")
      */
     public function applicationAction(Application $application) {
+//        dump($application); die;
         return $this->render('admin/application.html.twig', [
             'application' => $application
         ]);

@@ -39,3 +39,11 @@
         {{ form_end(form) }}
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('js/application.js') }}"></script>
+    <script>
+        {#application.ip = '{{ app.request.getClientIp() }}';#}
+        application.init();
+    </script>
+{% endblock %}

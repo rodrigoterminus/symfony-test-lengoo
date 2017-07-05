@@ -1,0 +1,89 @@
+html, body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.mdl-lengoo .mdl-layout__header-row {
+    padding-left: 40px;
+}
+.mdl-lengoo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+    font-size: inherit;
+}
+
+.mdl-lengoo .mdl-card {
+    height: auto;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.mdl-lengoo .mdl-card > * {
+    height: auto;
+}
+.mdl-lengoo .mdl-card .mdl-card__supporting-text {
+    margin: 40px;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    padding: 0;
+    color: inherit;
+    width: calc(100% - 80px);
+}
+.mdl-lengoo.mdl-lengoo .mdl-card__supporting-text h4 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.mdl-lengoo .mdl-card__actions {
+    margin: 0;
+    padding: 4px 40px;
+    color: inherit;
+}
+.mdl-lengoo .mdl-card__actions a {
+    color: #00BCD4;
+    margin: 0;
+}
+.mdl-lengoo .mdl-card__actions a:hover,
+.mdl-lengoo .mdl-card__actions a:active {
+    color: inherit;
+    background-color: transparent;
+}
+.mdl-lengoo .mdl-card__supporting-text + .mdl-card__actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.mdl-lengoo #btn-admin {
+    position: absolute;
+    right: 40px;
+    top: 160px;
+    z-index: 999;
+}
+
+.mdl-lengoo .mdl-layout__content section:not(:last-of-type) {
+    position: relative;
+    margin-bottom: 48px;
+}
+.mdl-lengoo section.section--center {
+    max-width: 860px;
+    margin: 40px auto;
+}
+
+.mdl-lengoo section.section--footer .section__circle--big {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 8px 32px;
+}
+.mdl-lengoo section.section--footer {
+    padding: 64px 0;
+    margin: 0 -8px -8px -8px;
+}
+.mdl-lengoo section.section--center .section__text:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.mdl-lengoo .mdl-card .mdl-card__supporting-text > h3:first-child {
+    margin-bottom: 24px;
+}
+.mdl-lengoo .mdl-layout__tab-panel:not(#overview) {
+    background-color: white;
+}

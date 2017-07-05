@@ -42,6 +42,24 @@ class ApplicationController extends Controller
             $em->persist($application);
             $em->flush();
 
+            $this->addFlash('success', 'Your application has been accepted!');
+
+            // Send success email to applicant
+            $message = (new \Swift_Message('We received your application'))
+                ->setFrom('contact@lengoo.com')
+                ->setTo($application->getEmail())
+                ->setBody(
+                    $this->renderView(
+                        'emails/application.html.twig',
+                        [
+                            'application' => $application
+                        ]
+                    ),
+                    'text/html'
+                );
+
+            $this->get('mailer')->send($message);
+
             return $this->redirectToRoute('application_index');
         }
 

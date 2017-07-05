@@ -35,7 +35,7 @@ class UserProvider implements UserProviderInterface
 
     public function refreshUser(UserInterface $user) : UserInterface
     {
-        if (!User instanceof $user) {
+        if (!$user instanceof User) {
             throw new UnsupportedUserException(
                 sprintf('Instances of "%s" are not supported.', get_class($user))
             );

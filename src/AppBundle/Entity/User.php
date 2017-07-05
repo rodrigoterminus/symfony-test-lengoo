@@ -45,27 +45,11 @@ class User implements UserInterface, EquatableInterface
     private $salt;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="roles", type="string", length=255)
+     * @ORM\Column(name="roles", type="json_array")
      */
-    private $roles;
-
-    /**
-     * User constructor.
-     *
-     * @param string $username
-     * @param string $password
-     * @param string $salt
-     * @param array $roles
-     */
-    public function __construct($username, $password, $salt, array $roles)
-    {
-        $this->username = $username;
-        $this->password = $password;
-        $this->salt = $salt;
-        $this->roles = $roles;
-    }
+    private $roles = [];
 
     /**
      * Get id

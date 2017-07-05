@@ -87,3 +87,8 @@ html, body {
 .mdl-lengoo .mdl-layout__tab-panel:not(#overview) {
     background-color: white;
 }
+
+.mdl-lengoo .mdl-card__actions .mdl-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

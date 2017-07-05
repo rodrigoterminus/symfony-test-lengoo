@@ -1,9 +1,41 @@
-{% extends "::base.html.twig" %}
+{% extends "layout/base.html.twig" %}
 
 {% block title %}AppBundle:Application:index{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        {{ form_start(form) }}
+            <div class="mdl-card__supporting-text">
+                <h4>Wellcome!</h4>
+                We are very happy to have you here. Please fill up the form bellow and attach your file. It will be a pleasure for us to receive your application.
+            </div>
+            <div class="mdl-card__supporting-text">
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            {{ form_widget(form.name, { attr: { class: 'mdl-textfield__input' } }) }}
+                            {{ form_label(form.name, null, { label_attr: {'class': 'mdl-textfield__label'} }) }}
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            {{ form_widget(form.email, { attr: { class: 'mdl-textfield__input' } }) }}
+                            {{ form_label(form.email, null, { label_attr: {'class': 'mdl-textfield__label'} }) }}
+                        </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--12-col">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            {{ form_widget(form.file, { attr: { class: 'mdl-textfield__input' } }) }}
+                            {{ form_label(form.file, null, { label_attr: {'class': 'mdl-textfield__label'} }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mdl-card__actions">
+                {{ form_widget(form.submit, { attr: { class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' } }) }}
+            </div>
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

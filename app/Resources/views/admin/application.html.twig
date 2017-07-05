@@ -2,6 +2,13 @@
 
 {% block body %}
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
+        <div class="mdl-card__title">
+            <h1 class="mdl-card__title-text">
+                <a href="{{ path('admin_index') }}" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="material-icons">arrow_back</i>
+                </a>
+            </h1>
+        </div>
         <div class="mdl-card__supporting-text">
             <h4>{{ application.name }}</h4>
 

@@ -39,8 +39,17 @@
                 </div>
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
                 </div>
-                <a href="{{ path('admin_index') }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color-text--black" id="btn-admin">
-                    <i class="material-icons" role="presentation">lock</i>
+
+                {# Define button according to route #}
+                {% if app.request.attributes.get('_route') == 'application_index' %}
+                    {% set button = { icon: 'lock', path: path('admin_index') } %}
+                {% else %}
+                    {% set button = { icon: 'exit_to_app', path: path('logout') } %}
+                {% endif %}
+
+
+                <a href="{{ button.path }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color-text--black" id="btn-admin">
+                    <i class="material-icons" role="presentation">{{ button.icon }}</i>
                     <span class="visuallyhidden">Add</span>
                 </a>
             </header>

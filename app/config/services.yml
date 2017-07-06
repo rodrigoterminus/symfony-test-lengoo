@@ -19,6 +19,11 @@ services:
         arguments: ["@doctrine.orm.entity_manager"]
         public: false
 
+    app.util.mailer:
+        class: AppBundle\Util\Mailer
+        arguments: ['@swiftmailer.mailer']
+        public: true
+
     # makes classes in src/AppBundle available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     AppBundle\:

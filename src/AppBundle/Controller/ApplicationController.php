@@ -46,7 +46,16 @@ class ApplicationController extends Controller
             );
 
             // Send confirmation email to applicant
-            $this->sendEmail($application);
+            $mailer = $this->get('app.util.mailer');
+            $mailer->send(
+                'We received your application',
+                'contact@lengoo.com',
+                $application->getEmail(),
+                $this->renderView(
+                    'emails/application.html.twig',
+                    [ 'application' => $application ]
+                )
+            );
 
             // Redirect user to the form
             return $this->redirectToRoute('application_index');
@@ -76,28 +85,5 @@ class ApplicationController extends Controller
             ->upload();
 
         return $fileUploader->getFileName();
-    }
-
-    /**
-     * Send confirmation email
-     *
-     * @param Application $application
-     * @return bool
-     */
-    private function sendEmail(Application $application) :bool
-    {
-        $mailer = new Mailer([
-            'mailer' => $this->get('mailer'),
-            'subject' => 'We received your application',
-            'to' => $application->getEmail(),
-            'body' => $this->renderView(
-                'emails/application.html.twig',
-                [ 'application' => $application ],
-                'text/html'
-            )
-        ]);
-        $mailer->send();
-
-        return true;
     }
 }

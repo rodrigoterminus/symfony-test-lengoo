@@ -2,42 +2,40 @@
 
 namespace AppBundle\Util;
 
-
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
-class Mailer
+class Mailer implements MailerInterface
 {
-    public function __construct(array $options = [])
+    /**
+     * @var \Swift_Mailer
+     */
+    private $mailer;
+
+    /**
+     * Mailer constructor.
+     *
+     * @param \Swift_Mailer $mailer
+     */
+    public function __construct(\Swift_Mailer $mailer)
     {
-        $resolver = new OptionsResolver();
-        $this->configureOptions($resolver);
-        ;
-
-        $this->options = $resolver->resolve($options);
+        $this->mailer = $mailer;
     }
 
-    public function configureOptions(OptionsResolver $resolver) {
-        $resolver->setDefaults([
-            'from' => 'contact@lengoo.com'
-        ]);
+    /**
+     * Send email using Swift_Mailer
+     *
+     * @param string $subject
+     * @param string $from
+     * @param string $to
+     * @param string $body
+     *
+     * @return boolean
+     */
+    public function send(string $subject, string $from, string $to, string $body) :bool
+    {
+        $message = (new \Swift_Message($subject))
+            ->setFrom($from)
+            ->setTo($to)
+            ->setBody($body, 'text/html');
 
-        $resolver
-            ->setRequired([
-                'mailer',
-                'subject',
-                'to',
-                'body'
-            ])
-            ->setAllowedTypes('mailer', \Swift_Mailer::class);
-    }
-
-    public function send() {
-        $message = (new \Swift_Message('We received your application'))
-            ->setFrom($this->options['from'])
-            ->setTo($this->options['to'])
-            ->setBody($this->options['body']);
-
-        $mailer = $this->options['mailer'];
-        $mailer->send($message);
+        return $this->mailer->send($message);
     }
 }

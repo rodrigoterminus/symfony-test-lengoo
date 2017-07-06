@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Application;
 use AppBundle\Form\ApplicationType;
+use AppBundle\Util\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -27,16 +28,14 @@ class ApplicationController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $application->getFile();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move uploaded file to /uploads directory
+            $fileUploader = (new FileUploader(
+                    $application->getFile(),
+                    $this->getParameter('uploads_directory')
+                ))
+                ->upload();
 
-            $file->move(
-                $this->getParameter('uploads_directory'),
-                $fileName
-            );
-
-            $application
-                ->setFile($fileName);
+            $application->setFile($fileUploader->getFileName());
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($application);

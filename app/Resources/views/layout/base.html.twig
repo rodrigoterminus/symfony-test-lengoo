@@ -72,6 +72,11 @@
                         </ul>
                     </div>
                 </footer>
+
+                <div id="toast-container" class="mdl-js-snackbar mdl-snackbar">
+                    <div class="mdl-snackbar__text"></div>
+                    <button class="mdl-snackbar__action" type="button"></button>
+                </div>
             </main>
         </div>
 
@@ -81,5 +86,17 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
         {% block javascripts %}{% endblock %}
+        <script>
+            $(document).ready(function() {
+                var snackbarContainer = document.querySelector('#toast-container');
+                var timeout = 4000;
+
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        snackbarContainer.MaterialSnackbar.showSnackbar({message: '{{ message }}', timeout: timeout});
+                    {% endfor %}
+                {% endfor %}
+            });
+        </script>
     </body>
 </html>

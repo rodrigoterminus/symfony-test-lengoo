@@ -42,7 +42,7 @@ class ApplicationController extends Controller
             $em->persist($application);
             $em->flush();
 
-            $this->addFlash('success', 'Your application has been accepted!');
+            $this->addFlash('success', 'Thank you for applying! We will get back to you as fast as we can.');
 
             // Send success email to applicant
             $message = (new \Swift_Message('We received your application'))

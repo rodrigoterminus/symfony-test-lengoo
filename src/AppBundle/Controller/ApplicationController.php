@@ -9,6 +9,7 @@ use AppBundle\Util\Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -31,7 +32,8 @@ class ApplicationController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             // Move uploaded file to /uploads directory
-            $application = $this->uploadFile($application);
+            $fileName = $this->uploadFile($application->getFile());
+            $application->setFile($fileName);
 
             // Persist entity
             $em = $this->getDoctrine()->getManager();
@@ -62,20 +64,18 @@ class ApplicationController extends Controller
     /**
      * Upload file
      *
-     * @param Application $application
-     * @return Application
+     * @param File $file
+     * @return string
      */
-    private function uploadFile(Application $application) :Application
+    private function uploadFile(File $file) :string
     {
         $fileUploader = (new FileUploader(
-                $application->getFile(),
+                $file,
                 $this->getParameter('uploads_directory')
             ))
             ->upload();
 
-        $application->setFile($fileUploader->getFileName());
-
-        return $application;
+        return $fileUploader->getFileName();
     }
 
     /**

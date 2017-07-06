@@ -7,6 +7,16 @@
         <form action="{{ path('login') }}" method="post">
             <div class="mdl-card__supporting-text">
                 <h4>Restrict area</h4>
+
+                {% if error %}
+                    <span class="mdl-chip mdl-chip--contact">
+                        <span class="mdl-chip__contact mdl-color--red mdl-color-text--white">
+                            <i class="material-icons">priority_high</i>
+                        </span>
+                        <span class="mdl-chip__text">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
+                    </span>
+                {% endif %}
+
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * application
@@ -25,6 +26,8 @@ class Application
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -32,6 +35,12 @@ class Application
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      */
     private $email;
 
@@ -39,6 +48,10 @@ class Application
      * @var string
      *
      * @ORM\Column(name="file", type="string", length=255)
+     *
+     * @Assert\File(
+     *     maxSize = "2M"
+     * )
      */
     private $file;
 

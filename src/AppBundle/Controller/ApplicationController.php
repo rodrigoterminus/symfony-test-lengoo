@@ -23,6 +23,7 @@ class ApplicationController extends Controller
     public function indexAction(Request $request)
     {
         $application = new Application();
+        $errors = null;
         $form = $this->createForm(ApplicationType::class, $application);
 
         $form->add('submit',SubmitType::class, ['label' => 'Apply']);
@@ -47,10 +48,14 @@ class ApplicationController extends Controller
 
             // Redirect user to the form
             return $this->redirectToRoute('application_index');
+        } else if ($form->isSubmitted()) {
+            $validator = $this->get('validator');
+            $errors = $validator->validate($application);
         }
 
         return $this->render('application/index.html.twig', array(
             'form' => $form->createView(),
+            'errors' => $errors,
         ));
     }
 

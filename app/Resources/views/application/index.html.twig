@@ -10,6 +10,12 @@
                 We are very happy to have you here. Please fill up the form bellow and attach your file. It will be a pleasure for us to receive your application.
             </div>
             <div class="mdl-card__supporting-text">
+                {% if errors %}
+                    {% for error in errors %}
+                        {% include 'layout/error-chip.html.twig' with { message: error.message } %}
+                    {% endfor %}
+                {% endif %}
+
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

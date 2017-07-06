@@ -10,6 +10,39 @@ html, body {
     font-size: inherit;
 }
 
+.mdl-lengoo .mdl-layout__tab-bar-button {
+    display: none;
+}
+.mdl-lengoo .mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
+    display: none;
+}
+.mdl-lengoo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-lengoo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
+    overflow: visible;
+}
+.mdl-lengoo .mdl-layout__tab-bar-container {
+    height: 64px;
+}
+.mdl-lengoo .mdl-layout__tab-bar {
+    padding: 0;
+    padding-left: 16px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+.mdl-lengoo .mdl-layout__tab-bar .mdl-layout__tab {
+    height: 64px;
+    line-height: 64px;
+}
+.mdl-lengoo .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+    background-color: white;
+    height: 4px;
+}
+.mdl-lengoo main > .mdl-layout__tab-panel {
+    padding: 8px;
+    padding-top: 48px;
+}
+
 .mdl-lengoo .mdl-card {
     height: auto;
     display: -webkit-flex;
@@ -55,7 +88,7 @@ html, body {
 .mdl-lengoo #btn-admin {
     position: absolute;
     right: 40px;
-    top: 160px;
+    top: 36px;
     z-index: 999;
 }
 

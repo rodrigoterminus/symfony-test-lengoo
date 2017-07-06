@@ -40,20 +40,30 @@
                 <div class="mdl-layout--large-screen-only mdl-layout__header-row">
                 </div>
 
-                {# Define button according to route #}
-                {% if app.request.attributes.get('_route') == 'application_index' %}
-                    {% set button = { icon: 'lock', path: path('admin_index'), label: 'Admin area' } %}
-                {% else %}
-                    {% set button = { icon: 'exit_to_app', path: path('logout'), label: 'Logout' } %}
-                {% endif %}
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark mdl-js-ripple-effect--ignore-events">
+                    {% if app.request.attributes.get('_route') == 'application_index' %}
+                        <a href="{{ path('application_index') }}"
+                           class="mdl-layout__tab {% if app.request.attributes.get('_route') == 'application_index' %}is-active{% endif %}">Apply now!</a>
+                    {% else %}
+                        <a href="{{ path('application_index') }}" class="mdl-layout__tab">Back to site</a>
+                        <a href="{{ path('admin_index') }}"
+                           class="mdl-layout__tab {% if app.request.attributes.get('_route') == 'admin_index' %}is-active{% endif %}">Applications</a>
+                    {% endif %}
 
+                    {# Define button according to route #}
+                    {% if app.request.attributes.get('_route') == 'application_index' %}
+                        {% set button = { icon: 'lock', path: path('admin_index'), label: 'Admin area' } %}
+                    {% else %}
+                        {% set button = { icon: 'exit_to_app', path: path('logout'), label: 'Logout' } %}
+                    {% endif %}
 
-                <a href="{{ button.path }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color-text--black" id="btn-admin">
-                    <i class="material-icons" role="presentation">{{ button.icon }}</i>
-                    <span class="visuallyhidden">Add</span>
-                </a>
-                <div class="mdl-tooltip" data-mdl-for="btn-admin">
-                    {{ button.label }}
+                    <a href="{{ button.path }}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color-text--black" id="btn-admin">
+                        <i class="material-icons" role="presentation">{{ button.icon }}</i>
+                        <span class="visuallyhidden">Add</span>
+                    </a>
+                    <div class="mdl-tooltip" data-mdl-for="btn-admin">
+                        {{ button.label }}
+                    </div>
                 </div>
             </header>
             <main class="mdl-layout__content">

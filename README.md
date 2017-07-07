@@ -26,3 +26,9 @@ The following commands will create a new database, update it with the applicatio
     bin/console server:run
     
 The console will show the correct address where the application will be available to be used.
+
+## Testing
+To run the tests just run the following command at the project's root directory:
+    
+    vendor/bin/phpunit
+    

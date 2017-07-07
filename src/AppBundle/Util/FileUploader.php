@@ -4,12 +4,17 @@ namespace AppBundle\Util;
 
 use Symfony\Component\HttpFoundation\File\File;
 
-class FileUploader
+class FileUploader implements FileUploaderIntarface
 {
     /**
      * @var string
      */
-    var $fileName;
+    private $fileName;
+
+    /**
+     * @var string
+     */
+    private $path;
 
     /**
      * FileUploader constructor.

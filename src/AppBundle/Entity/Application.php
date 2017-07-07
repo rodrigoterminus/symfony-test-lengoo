@@ -70,6 +70,12 @@ class Application
     private $location;
 
     /**
+     * @var string
+     * @ORM\Column(name="notes", type="text")
+     */
+    private $notes;
+
+    /**
      * Application constructor.
      */
     public function __construct()
@@ -205,6 +211,24 @@ class Application
     public function getLocation()
     {
         return json_decode($this->location, true);
+    }
+
+    /**
+     * @return string
+     */
+    public function getNotes(): string
+    {
+        return $this->notes;
+    }
+
+    /**
+     * @param string $notes
+     * @return Application
+     */
+    public function setNotes(string $notes): Application
+    {
+        $this->notes = $notes;
+        return $this;
     }
 }
 

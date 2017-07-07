@@ -5,6 +5,14 @@ var application = (function() {
 
     var init = function() {
         getLocation();
+
+        $('form').on('submit', function() {
+            $('#appbundle_application_submit')
+                .text('Applying...')
+                .attr({
+                    'disabled': 'disabled'
+                });
+        });
     };
 
     var getLocation = function () {

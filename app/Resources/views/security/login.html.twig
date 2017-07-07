@@ -6,7 +6,7 @@
     <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col">
         <form action="{{ path('login') }}" method="post">
             <div class="mdl-card__supporting-text">
-                <h4>Restrict area</h4>
+                <h4>Restricted area</h4>
 
                 {% if error %}
                     {% include 'layout/error-chip.html.twig' with { message: error.messageKey|trans(error.messageData, 'security') } %}

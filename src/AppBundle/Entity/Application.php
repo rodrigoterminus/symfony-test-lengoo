@@ -71,7 +71,7 @@ class Application
 
     /**
      * @var string
-     * @ORM\Column(name="notes", type="text")
+     * @ORM\Column(name="notes", type="text", nullable=true)
      */
     private $notes;
 
@@ -216,7 +216,7 @@ class Application
     /**
      * @return string
      */
-    public function getNotes(): string
+    public function getNotes()
     {
         return $this->notes;
     }

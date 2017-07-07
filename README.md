@@ -19,13 +19,20 @@ You have to specify a valid email settings and your database parameters.
 The following commands will create a new database, update it with the application's tables and load initial data to it.
 
     bin/console doctrine:create:database
-    bin/console doctrine:schema:update --force
+    bin/console doctrine:migrations:mirate
+    
+### 3. Load initial data
     bin/console doctrine:fixtures:load
     
-### 3. Run the application using the built-in server
+**Credentials to secured area:** 
+
+*Username:* lengoo  
+*Password:* lengoo
+    
+### 4. Run the application using the built-in server
     bin/console server:run
     
-The console will show the correct address where the application will be available to be used.
+The console will show the correct address where the application will be available.
 
 ## Testing
 To run the tests just run the following command at the project's root directory:

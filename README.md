@@ -14,6 +14,8 @@ You have to specify a valid email settings and your database parameters.
 
     composer install
     
+*Tip: [MailTrap](mailtrap.io) is a good option to fake a SMTP server.*
+    
 
 ### 2. Set database
 The following commands will create a new database, update it with the application's tables and load initial data to it.

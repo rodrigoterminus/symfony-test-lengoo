@@ -75,7 +75,7 @@ class ApplicationControllerTest extends WebTestCase
 
         $this->assertEquals(
             0,
-            $crawler->filter('div.mdl-chip')->count()
+            $crawler->filter('span.mdl-chip')->count()
         );
     }
 

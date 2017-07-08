@@ -17,7 +17,7 @@ services:
     app.user_provider:
         class: AppBundle\Security\User\UserProvider
         arguments: ["@doctrine.orm.entity_manager"]
-        public: false
+        public: true
 
     app.util.mailer:
         class: AppBundle\Util\Mailer

@@ -1,8 +1,6 @@
 'use strict';
 
 var application = (function() {
-    var ip = '';
-
     var init = function() {
         getLocation();
 
@@ -16,7 +14,7 @@ var application = (function() {
     };
 
     var getLocation = function () {
-        $.get('http://ip-api.com/json/'+ ip)
+        $.get('http://ip-api.com/json/')
             .done(function (response) {
                 $('#appbundle_application_location').val(JSON.stringify(response));
             })

@@ -55,7 +55,7 @@
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('js/application.js') }}"></script>
     <script>
-        {#application.ip = '{{ app.request.getClientIp() }}';#}
+        application.ip = '{{ (app.environment == 'dev') ? '187.183.24.33' : app.request.getClientIp() }}';
         application.init();
     </script>
 {% endblock %}

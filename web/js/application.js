@@ -1,7 +1,7 @@
 'use strict';
 
 var application = (function() {
-    var ip = '187.183.24.33';
+    var ip = '';
 
     var init = function() {
         getLocation();

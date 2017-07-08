@@ -19,7 +19,7 @@ You have to specify a valid email settings and your database parameters.
 The following commands will create a new database, update it with the application's tables and load initial data to it.
 
     bin/console doctrine:database:create
-    bin/console doctrine:migrations:mirate
+    bin/console doctrine:migrations:migrate
     
 ### 3. Load initial data
     bin/console doctrine:fixtures:load
